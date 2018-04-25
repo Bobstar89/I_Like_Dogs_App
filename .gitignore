@@ -1,4 +1,5 @@
 **/Common/*.png
 **/Common/*.m4a
 **/Common/*.wav
+**/**/Media
 *.xcassets
