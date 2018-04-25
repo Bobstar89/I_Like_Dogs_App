@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,23 +18,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="button_sound_on" translatesAutoresizingMaskIntoConstraints="NO" id="X29-1i-aHC">
-                                <rect key="frame" x="927" y="681" width="77" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z3L-2k-3vL">
                                 <rect key="frame" x="357" y="281" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ua3-iK-3QK">
-                                <rect key="frame" x="20" y="690" width="130" height="67"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epu-Lu-eHE">
+                                <rect key="frame" x="20" y="688" width="119" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="exitbtn_small"/>
+                                <state key="normal" backgroundImage="exit-button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="w1n-kf-OS6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIE-Ah-u3k">
+                                <rect key="frame" x="944" y="688" width="60" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="7Ts-9H-ugO" eventType="touchUpInside" id="0hU-Aj-SgX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfl-xe-Tp3">
+                                <rect key="frame" x="874" y="685" width="62" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeNarrationSetting:" destination="7Ts-9H-ugO" eventType="touchUpInside" id="BZB-fh-rhL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="u8f-YB-99W"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="iIE-Ah-u3k" id="x0T-aP-Wg5"/>
+                        <outlet property="narratorSoundBtn" destination="Rfl-xe-Tp3" id="77P-eq-iNx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n9q-4X-cug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -48,61 +67,626 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background-Landscape" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-Y8-Ige">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_low-res" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-Y8-Ige">
                                 <rect key="frame" x="-6" y="0.0" width="1030" height="772"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn_read" translatesAutoresizingMaskIntoConstraints="NO" id="KGj-YP-XgR">
-                                <rect key="frame" x="671" y="236" width="236" height="103"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn_readersandwriters" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-XG-NSM">
-                                <rect key="frame" x="191" y="696" width="270" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn_downloadELA" translatesAutoresizingMaskIntoConstraints="NO" id="Cp4-dw-Hpg">
-                                <rect key="frame" x="469" y="699" width="365" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="button_sound_on" translatesAutoresizingMaskIntoConstraints="NO" id="AY4-zP-2z4">
-                                <rect key="frame" x="945" y="696" width="68" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="button_narratorsound_off" translatesAutoresizingMaskIntoConstraints="NO" id="Y71-vF-jgd">
-                                <rect key="frame" x="868" y="695" width="71" height="68"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="download_ELA_button" translatesAutoresizingMaskIntoConstraints="NO" id="Cp4-dw-Hpg">
+                                <rect key="frame" x="491" y="703" width="410" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hd2-T9-zYR">
-                                <rect key="frame" x="12" y="696" width="171" height="63"/>
+                                <rect key="frame" x="3" y="701" width="205" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="btn_about"/>
+                                <state key="normal" backgroundImage="about_button"/>
                                 <connections>
                                     <segue destination="7Ts-9H-ugO" kind="show" id="JA7-8a-QUy"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn_readMyself" translatesAutoresizingMaskIntoConstraints="NO" id="9Vj-pi-erE">
-                                <rect key="frame" x="671" y="408" width="236" height="101"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4eP-fP-yag">
+                                <rect key="frame" x="614" y="295" width="299" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" backgroundImage="read-button"/>
+                                <connections>
+                                    <segue destination="GID-jJ-xyS" kind="show" id="2hu-ED-gHI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-VO-exC">
+                                <rect key="frame" x="614" y="400" width="299" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="read-myself-button"/>
+                                <connections>
+                                    <segue destination="GID-jJ-xyS" kind="show" id="5iA-5y-9jx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6p-Y7-xxl">
+                                <rect key="frame" x="216" y="703" width="267" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="readers-and-writers-button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACk-vK-vJD">
+                                <rect key="frame" x="900" y="698" width="62" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeNarrationSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eD7-Wc-MQz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-lW-a2f">
+                                <rect key="frame" x="960" y="698" width="60" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBy-oD-5MM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="HNg-lW-a2f" id="mxD-Q8-lje"/>
+                        <outlet property="narratorSoundBtn" destination="ACk-vK-vJD" id="HNe-fb-vOw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="33.984375" y="34.375"/>
         </scene>
+        <!--First Page Controller-->
+        <scene sceneID="pLw-vj-ydD">
+            <objects>
+                <viewController id="GID-jJ-xyS" customClass="FirstPageController" customModule="I_Like_Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oAd-dq-Ulq">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plx-QT-oWc">
+                                <rect key="frame" x="355" y="688" width="119" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="exit-button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="exitSegue" id="gLZ-9S-FPi"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnw-xp-dDj">
+                                <rect key="frame" x="168" y="127" width="598" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dko-JO-zpE">
+                                <rect key="frame" x="484" y="685" width="56" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="GID-jJ-xyS" eventType="touchUpInside" id="eif-XY-1h8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rk8-L2-rR4">
+                                <rect key="frame" x="915" y="663" width="89" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <connections>
+                                    <segue destination="6XD-QL-iuk" kind="show" id="XgD-3W-d0g"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0D-Zx-2dy">
+                                <rect key="frame" x="548" y="685" width="57" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeNarrationSetting:" destination="GID-jJ-xyS" eventType="touchUpInside" id="w1R-av-ISk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0Ty-R5-RzT"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="dko-JO-zpE" id="DZX-Yv-RQz"/>
+                        <outlet property="narratorSoundBtn" destination="J0D-Zx-2dy" id="SEI-W9-fLA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Imd-58-1TS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695.5078125" y="33.59375"/>
+        </scene>
+        <!--Second Page Controller-->
+        <scene sceneID="EsS-YB-wxm">
+            <objects>
+                <viewController id="6XD-QL-iuk" customClass="SecondPageController" customModule="I_Like_Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bRK-3l-BQf">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dip-2Y-BXg">
+                                <rect key="frame" x="355" y="688" width="119" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="exit-button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="exitSegue" id="nmr-Sa-guP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjy-VA-esG">
+                                <rect key="frame" x="924" y="675" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <connections>
+                                    <segue destination="eyR-wb-XyJ" kind="show" id="pjo-Ac-lEc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-n9-FPa">
+                                <rect key="frame" x="20" y="663" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <connections>
+                                    <segue destination="GID-jJ-xyS" kind="show" id="6tO-tt-yeA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Small Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWx-hq-syx">
+                                <rect key="frame" x="213" y="297" width="598" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRP-Wo-yYX">
+                                <rect key="frame" x="484" y="685" width="56" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="6XD-QL-iuk" eventType="touchUpInside" id="pWp-Ga-aUc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4yY-bp-GhL">
+                                <rect key="frame" x="548" y="685" width="57" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeNarrationSetting:" destination="6XD-QL-iuk" eventType="touchUpInside" id="Ex3-zB-d5f"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="v1C-72-mlh"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="YRP-Wo-yYX" id="yjV-sy-hMC"/>
+                        <outlet property="narratorSoundBtn" destination="4yY-bp-GhL" id="JcN-TV-koh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58h-Gq-x0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="34"/>
+        </scene>
+        <!--Third Page Controller-->
+        <scene sceneID="5UL-Lm-XbC">
+            <objects>
+                <viewController id="eyR-wb-XyJ" customClass="ThirdPageController" customModule="I_Like_Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fYa-vf-LMF">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7C-cL-Ehi">
+                                <rect key="frame" x="355" y="688" width="119" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="exit-button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="exitSegue" id="t9T-sT-RTY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7yd-N1-396">
+                                <rect key="frame" x="924" y="675" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <connections>
+                                    <segue destination="vds-VG-1bs" kind="show" id="gVU-hT-fM4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfA-jo-P81">
+                                <rect key="frame" x="20" y="663" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <connections>
+                                    <segue destination="6XD-QL-iuk" kind="show" id="UdM-21-fhO"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Big Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeM-9g-TKq">
+                                <rect key="frame" x="213" y="297" width="598" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFl-A6-zSD">
+                                <rect key="frame" x="484" y="686" width="56" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="eyR-wb-XyJ" eventType="touchUpInside" id="NCQ-Wp-Dp5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pl1-nq-7HL">
+                                <rect key="frame" x="548" y="686" width="57" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeNarrationSetting:" destination="eyR-wb-XyJ" eventType="touchUpInside" id="8Yq-fa-3bo"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0w5-tL-3CT"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="eFl-A6-zSD" id="6M5-ql-LXg"/>
+                        <outlet property="narratorSoundBtn" destination="pl1-nq-7HL" id="pvS-eu-uh5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EuT-x3-ezV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2004" y="34"/>
+        </scene>
+        <!--Fourth Page Controller-->
+        <scene sceneID="Ttm-YV-FAd">
+            <objects>
+                <viewController id="vds-VG-1bs" customClass="FourthPageController" customModule="I_Like_Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kCe-no-rRg">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUN-aP-egA">
+                                <rect key="frame" x="355" y="688" width="119" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="exit-button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="exitSegue" id="VQE-ec-Ivj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCf-fg-7e4">
+                                <rect key="frame" x="924" y="675" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <connections>
+                                    <segue destination="7xr-cp-iPn" kind="show" id="y8m-to-FNB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwd-I1-BNL">
+                                <rect key="frame" x="20" y="663" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <connections>
+                                    <segue destination="eyR-wb-XyJ" kind="show" id="Phi-lR-JzJ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Spotty Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gv3-19-fzv">
+                                <rect key="frame" x="213" y="297" width="598" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00U-Pu-dc5">
+                                <rect key="frame" x="484" y="688" width="56" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bkh-KK-2Vh"/>
+                                    <action selector="changeMusicSetting:" destination="vds-VG-1bs" eventType="touchUpInside" id="jG2-Mg-3EP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3WV-iJ-0e2">
+                                <rect key="frame" x="548" y="688" width="57" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeNarrationSetting:" destination="vds-VG-1bs" eventType="touchUpInside" id="XgC-cn-yXW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="NJr-t6-UIe"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="00U-Pu-dc5" id="c5A-Ic-51t"/>
+                        <outlet property="narratorSoundBtn" destination="3WV-iJ-0e2" id="TIB-fl-vrR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9h-vY-dNs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2647" y="34"/>
+        </scene>
+        <!--Fifth Page Controller-->
+        <scene sceneID="UTT-MD-IvO">
+            <objects>
+                <viewController id="7xr-cp-iPn" customClass="FifthPageController" customModule="I_Like_Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3SC-tS-rq0">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pk8-uH-eFK">
+                                <rect key="frame" x="355" y="688" width="119" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="exit-button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="exitSegue" id="AUT-9a-LMQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guy-ei-dfC">
+                                <rect key="frame" x="924" y="675" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <connections>
+                                    <segue destination="3TE-Kh-5vX" kind="show" id="Jgr-Gj-n8M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evt-S6-OT6">
+                                <rect key="frame" x="20" y="663" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <connections>
+                                    <segue destination="vds-VG-1bs" kind="show" id="mV5-st-xho"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Curly-haired Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5r-JV-1iR">
+                                <rect key="frame" x="213" y="297" width="598" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhx-cN-pFW">
+                                <rect key="frame" x="484" y="687" width="56" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="7xr-cp-iPn" eventType="touchUpInside" id="JXw-i2-ehh"/>
+                                    <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UhS-nc-4IN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F5C-Bo-Vce">
+                                <rect key="frame" x="548" y="686" width="57" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeNarrationSetting:" destination="7xr-cp-iPn" eventType="touchUpInside" id="9Ip-jO-NFU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="d8z-Fp-K4A"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="Mhx-cN-pFW" id="k6U-c3-GSh"/>
+                        <outlet property="narratorSoundBtn" destination="F5C-Bo-Vce" id="xhe-uh-fI9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GxA-HE-m5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="696" y="1030"/>
+        </scene>
+        <!--Sixth Page Controller-->
+        <scene sceneID="SGp-eh-Xgn">
+            <objects>
+                <viewController id="3TE-Kh-5vX" customClass="SixthPageController" customModule="I_Like_Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hsm-Gp-RNR">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixg-vU-w3j">
+                                <rect key="frame" x="355" y="688" width="119" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="exit-button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="exitSegue" id="i0y-mj-dSX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WH4-qC-pP2">
+                                <rect key="frame" x="924" y="675" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <connections>
+                                    <segue destination="yq8-zD-mIz" kind="show" id="roN-hs-g1M"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIl-uA-xyb">
+                                <rect key="frame" x="20" y="663" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <connections>
+                                    <segue destination="7xr-cp-iPn" kind="show" identifier="" id="NCX-UA-2Fq"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Happy Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6C-nm-ghe">
+                                <rect key="frame" x="213" y="297" width="598" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-YE-hAN">
+                                <rect key="frame" x="484" y="687" width="56" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Een-ar-OBs"/>
+                                    <action selector="changeMusicSetting:" destination="3TE-Kh-5vX" eventType="touchUpInside" id="ver-wZ-SSC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0g-bA-wzf">
+                                <rect key="frame" x="548" y="688" width="57" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="3TE-Kh-5vX" eventType="touchUpInside" id="1nm-sg-0gU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="BVU-oj-Kdp"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="0JY-YE-hAN" id="PZm-FN-3MH"/>
+                        <outlet property="narratorSoundBtn" destination="G0g-bA-wzf" id="JtA-h7-mYb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yWO-9V-vv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1353" y="1030"/>
+        </scene>
+        <!--Eighth Page Controller-->
+        <scene sceneID="JtN-cZ-WhP">
+            <objects>
+                <viewController id="I2p-jG-2dX" customClass="EighthPageController" customModule="I_Like_Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6WL-M4-OBR">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL9-l5-xXs">
+                                <rect key="frame" x="355" y="688" width="119" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="exit-button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="exitSegue" id="bn5-IU-2ng"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMm-2h-15j">
+                                <rect key="frame" x="20" y="663" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <connections>
+                                    <segue destination="yq8-zD-mIz" kind="show" id="Fw1-rR-C8Y"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="But most of all ... I Like My Dog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an5-Ja-JMX">
+                                <rect key="frame" x="168" y="327" width="598" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvU-Ke-JHI">
+                                <rect key="frame" x="484" y="685" width="56" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="I2p-jG-2dX" eventType="touchUpInside" id="0P3-26-I22"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZk-wU-Cvo">
+                                <rect key="frame" x="548" y="685" width="57" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeNarrationSetting:" destination="I2p-jG-2dX" eventType="touchUpInside" id="cB2-aF-hTt"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="NZB-Qn-wg5"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="TvU-Ke-JHI" id="ktr-KH-Ttm"/>
+                        <outlet property="narratorSoundBtn" destination="CZk-wU-Cvo" id="Fsw-x7-f9v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="08m-uQ-OQt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2646.6796875" y="1029.6875"/>
+        </scene>
+        <!--Seventh Page Controller-->
+        <scene sceneID="Vr4-fU-zgS">
+            <objects>
+                <viewController id="yq8-zD-mIz" customClass="SeventhPageController" customModule="I_Like_Dogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x8l-od-KIT">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9u-ng-GmY">
+                                <rect key="frame" x="355" y="688" width="119" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="exit-button"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="exitSegue" id="lW5-yH-cHg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRV-Id-xfO">
+                                <rect key="frame" x="924" y="675" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <connections>
+                                    <segue destination="I2p-jG-2dX" kind="show" id="hho-UO-BtI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be9-Sw-Ckr">
+                                <rect key="frame" x="20" y="663" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <connections>
+                                    <segue destination="3TE-Kh-5vX" kind="show" identifier="exitSegue" id="tbH-Bj-47e"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Jumping Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPY-gC-iTI">
+                                <rect key="frame" x="213" y="297" width="598" height="175"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnG-tc-hXI">
+                                <rect key="frame" x="482" y="685" width="56" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <connections>
+                                    <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5cB-Yn-9JT"/>
+                                    <action selector="changeMusicSetting:" destination="yq8-zD-mIz" eventType="touchUpInside" id="Iir-F2-SAB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yk0-AQ-7XH">
+                                <rect key="frame" x="546" y="685" width="57" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="narrator-sound-button_on"/>
+                                <connections>
+                                    <action selector="changeNarrationSetting:" destination="yq8-zD-mIz" eventType="touchUpInside" id="Mse-dj-qC0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="3K3-bJ-Zp2"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundMusicBtn" destination="TnG-tc-hXI" id="sd5-Er-FbC"/>
+                        <outlet property="narratorSoundBtn" destination="Yk0-AQ-7XH" id="QWc-G8-Jed"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z9o-Oe-xaz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2004" y="1030"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="background-Landscape" width="5650" height="4267"/>
-        <image name="btn_about" width="96" height="31"/>
-        <image name="btn_downloadELA" width="221" height="31"/>
-        <image name="btn_read" width="163" height="40"/>
-        <image name="btn_readMyself" width="163" height="40"/>
-        <image name="btn_readersandwriters" width="135" height="31"/>
-        <image name="button_narratorsound_off" width="28" height="31"/>
-        <image name="button_sound_on" width="28" height="31"/>
-        <image name="exitbtn_small" width="62" height="31"/>
+        <image name="about_button" width="96" height="31"/>
+        <image name="background_low-res" width="353" height="266"/>
+        <image name="download_ELA_button" width="221" height="31"/>
+        <image name="exit-button" width="62" height="31"/>
+        <image name="narrator-sound-button_on" width="28" height="31"/>
+        <image name="nav-button_left.png" width="89" height="79"/>
+        <image name="nav-button_right.png" width="89" height="79"/>
+        <image name="read-button" width="163" height="40"/>
+        <image name="read-myself-button" width="163" height="40"/>
+        <image name="readers-and-writers-button" width="135" height="31"/>
+        <image name="sound_button_on" width="56" height="63"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Fw1-rR-C8Y"/>
+        <segue reference="tbH-Bj-47e"/>
+        <segue reference="y8m-to-FNB"/>
+        <segue reference="gVU-hT-fM4"/>
+        <segue reference="Phi-lR-JzJ"/>
+        <segue reference="UdM-21-fhO"/>
+        <segue reference="6tO-tt-yeA"/>
+        <segue reference="VQE-ec-Ivj"/>
+    </inferredMetricsTieBreakers>
 </document>

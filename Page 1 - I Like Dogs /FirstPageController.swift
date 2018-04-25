@@ -1,5 +1,5 @@
 //
-//  P5ViewController.swift
+//  P1ViewController.swift
 //  I Like Dogs
 //
 //  Created by Bobby Tagget on 12/4/18.
@@ -8,20 +8,11 @@
 
 import UIKit
 
-class P5ViewController: UIViewController {
-
+class FirstPageController: StorybookController {
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        super.updateMusicBtnImage();
+        super.updateNarrationBtnImage();
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     /*
     // MARK: - Navigation
 

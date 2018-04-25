@@ -8,18 +8,20 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-
+class MainViewController: StorybookController {
+//    var audioSystem: MusicPlayer!;
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
+        super.updateMusicBtnImage();
+        super.updateNarrationBtnImage();
+    }
+        
+//        if(audioSystem == nil) {
+//            audioSystem = MusicPlayer()
+//        }
         // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 
+ 
