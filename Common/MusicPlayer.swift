@@ -10,63 +10,168 @@ import UIKit
 import SpriteKit
 import AVFoundation
 
+    /*
+                                  ===================
+                                      MUSICPLAYER
+                                  ===================
+ 
+                    Utilising the operation system's audio setting
+                    and the AVAudioPlayer class, the MusicPlayer
+                    is a static class used throughout the app.
+ 
+                    Each sound is loaded into 'Music Player' via
+                    seperate tracks for each of the Background Music,
+                    Sound Effects and Narration audio files.
+    */
 class MusicPlayer: NSObject {
-    // Sound toggles
+    
+    /*  Name: isNarratirOn
+     
+        Description: stores whether or not to have narrator's voice speak while reading on screen text
+     
+        Used by: toggleNarration(), getNarration(), optimiseAudioSession()
+     */
          static private var isNarratorOn = true;
-         static private var isMusicOn = true;
     
-    // AudioPlayer tracks
-         static public var backgroundMusicTrack: AVAudioPlayer!;
-         static private var buttonSoundEffectTrack: AVAudioPlayer!;
-         static private var audioFileURL: URL?
+    /*  Name: isMusicOn
+     
+        Description: stores whether or not to have narrator's voice speak while reading on screen text
+     
+        Used by: toggleMusic(), getMusic()
+     */
+        static private var isMusicOn = true;
     
-    // General audio configuration items
+    /*  Name: audioFileURL
+     
+        Description: stores an audio file's location as a URL object to be used for an AVAudioPlayer track
+     
+        Used by: setup(), loadPageTracks()
+    */
+    
+        static private var audioFileURL: URL!
+    
+    /*  Name: soundtracks
+     
+        Description: stores each soundtrack name
+     
+        Used by: loadSoundtracksIntoStack()
+ 
+     */
+        static private var soundtracks = ["backgroundMusic", "nav-back", "nav-forward"]
+    
+    /*  Name: stack
+     
+        Description: stores audio references for sounds effects and music in a stack of tracks
+     
+        Used by: setup()
+
+     */
+        static private var stack = [String : AVAudioPlayer]();
+    
+        static private let numOfPageNarrationTracks = 7
+    
+    /*  session
+ 
+        Description: stores the global operating system's audio setting
+     
+        Used by: setup()
+    */
         static private var session: AVAudioSession!;
+    
+    /*  isSetup()
+ 
+        Used by: setup()
+     */
     static public var isSetup = false;
     
+    /*  retrieveAudioFile()
+     
+        Dependencies: NONE
+     
+        Purpose: given a fileName and fileType, retrieveAudioFile() returns an absolute URL "path" to the caller
+     */
+    
+    static func retrieveAudioFile(fileName: String, fileType: String) -> URL{
+        
+        // path is unchangeable and stores the absolute audio location
+        let path = Bundle.main.path(forResource: fileName, ofType: fileType)!
+        print(path);
+        
+        // return the location as a URL() object
+        return URL(fileURLWithPath: path);
+    }
+    
+    /*  setup()
+     
+        Dependencies: session, audioFileURL, backgroundSoundEffectTrack, buttonSoundEffectTrack
+     
+        Purpose: configure music session information and retrieve app sound effects
+    */
     static func setup() {
-        print("setup underway")
+        // Retrieve location of the background music file and store it in "audioFileURL"
+            audioFileURL = retrieveAudioFile(fileName: "background", fileType: "mp3")
+            stack["backgroundMusic"] = try! AVAudioPlayer(contentsOf: audioFileURL);
+        
+        // Retrieve location of the button sound effect file and store it in "audioFileURL"
+            audioFileURL = retrieveAudioFile(fileName: "hustle-on", fileType: "wav")
+           stack["buttonSoundEffect"] = try! AVAudioPlayer(contentsOf: audioFileURL);
+
         // store the app's current audio configuration of the app for easy access
-            session = AVAudioSession.sharedInstance()
+        session = AVAudioSession.sharedInstance()
         
         // set the current session to optimise the output of audio
-            try! session.setCategory(AVAudioSessionCategoryPlayback)
-        
-        // Retrieve location of each track's music
-            let BGMFileURL = URL(fileURLWithPath: Bundle.main.path(forResource: "Background prototype", ofType: "m4a")!)
-            let buttonSFXFileURL = URL(fileURLWithPath: Bundle.main.path(forResource: "hustle-on", ofType: "wav")!);
-        
-        do {
-            // Store music data in variables
-                backgroundMusicTrack = try AVAudioPlayer(contentsOf: BGMFileURL);
-                buttonSoundEffectTrack = try AVAudioPlayer(contentsOf: buttonSFXFileURL);
-            // Begin control of a shared audio session instance
-                try session.setActive(true)
-            
-            // Track configuration
-            buttonSoundEffectTrack.prepareToPlay()
-            backgroundMusicTrack.numberOfLoops = -1;
-            
-        }
-        catch {
-            print(error)
-        }
-        isSetup = true;
-        backgroundMusicTrack.play()
-    }
+        try! session.setCategory(AVAudioSessionCategoryPlayback)
 
-    // toggleNarration:
-    //                      change "isNarrationOn" to alternate boolean state
+        // Begin control of a shared audio session instance
+        try! session.setActive(true)
+            
+        // preload button effect sound
+        stack["buttonSoundEffect"]!.prepareToPlay()
+        
+        // repeat background track indefinitely
+        stack["backgroundMusic"]!.numberOfLoops = -1;
+        stack["backgroundMusic"]!.play()
+        
+//        for i in 0...numOfPageNarrationTracks {
+//            loadPageTracks(pageNumber: i);
+//        }
+        /*  setup complete in "Main Menu"
+ 
+            Used by: MainMenuController.viewDidLoad()
+        */
+            isSetup = true;
+        
+    }
     
+    static func loadsoundtracksIntoMusicStack(pageNumber: Int){
+        for i in 0...soundtracks.count {
+            audioFileURL = retrieveAudioFile(fileName: soundtracks[i], fileType: "mp3");
+            do {
+                let track = try AVAudioPlayer(contentsOf: audioFileURL)
+                stack["\(soundtracks[i])"] = track;
+            }
+            catch { print(error) }
+        }
+    }
+    
+    /*  toggleNarration()
+     
+        Dependencies: isNarrationOn
+     
+        Description: change "isNarrationOn" to alternate state
+ 
+    */
          static func toggleNarration()
          {
             if(isNarratorOn)
             {
-                isNarratorOn = false;
+                // Turn narration off
+                    isNarratorOn = false;
             }
             else
             {
-                isNarratorOn = true;
+                // Turn narration on
+                    isNarratorOn = true;
             }
         }
     
@@ -87,12 +192,12 @@ class MusicPlayer: NSObject {
             if(isMusicOn)
             {
                 isMusicOn = false;
-                backgroundMusicTrack.stop();
+                stack["backgroundMusic"]!.stop();
             }
             else
             {
                 isMusicOn = true;
-                backgroundMusicTrack.play();
+                stack["backgroundMusic"]!.play();
             }
             
             optimiseAudioSession()
@@ -108,12 +213,12 @@ class MusicPlayer: NSObject {
     // playSoundEffect:
     //                      After receiving a audioFileName, find the file reference in the Bundle and load the audioFile into the player
     //                      If there is an error, log it to the console window
-        func playSoundEffect(audioFileName: String) {
+        func playSoundEffect() {
             
         }
     
-    static func playButtonSoundEffect() {
-        buttonSoundEffectTrack.play()
+    static func playButtonSoundEffect(audioFileName: String){
+        
     }
     
     // optimiseAudioSession:
@@ -126,5 +231,11 @@ class MusicPlayer: NSObject {
         if( isMusicOn == false && isNarratorOn == false) {
             try! session.setCategory(AVAudioSessionCategoryAmbient)
         }
+    }
+    
+    static func dispatchAudio() {
+        //let audioStack = [backgroundMusicTrack, buttonSoundEffectTrack]
+        
+        
     }
 }

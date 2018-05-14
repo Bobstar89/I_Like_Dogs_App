@@ -67,12 +67,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_low-res" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-Y8-Ige">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main-menu-background" translatesAutoresizingMaskIntoConstraints="NO" id="IyS-Y8-Ige">
                                 <rect key="frame" x="-6" y="0.0" width="1030" height="772"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="download_ELA_button" translatesAutoresizingMaskIntoConstraints="NO" id="Cp4-dw-Hpg">
-                                <rect key="frame" x="491" y="703" width="410" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hd2-T9-zYR">
@@ -103,6 +99,10 @@
                                 <rect key="frame" x="216" y="703" width="267" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="readers-and-writers-button"/>
+                                <connections>
+                                    <action selector="dispatchTester:" destination="BYZ-38-t0r" eventType="touchUpInside" id="olf-NN-aHp"/>
+                                    <action selector="linkToExternalResource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BnU-6J-l1f"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACk-vK-vJD">
                                 <rect key="frame" x="900" y="698" width="62" height="66"/>
@@ -115,9 +115,17 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-lW-a2f">
                                 <rect key="frame" x="960" y="698" width="60" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <state key="normal" backgroundImage="sound-button_on"/>
                                 <connections>
                                     <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LBy-oD-5MM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mu1-Jx-Dpf">
+                                <rect key="frame" x="491" y="703" width="401" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="download_ELA_button"/>
+                                <connections>
+                                    <action selector="linkToExternalResource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tOb-Lh-2YV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -126,6 +134,9 @@
                     </view>
                     <connections>
                         <outlet property="backgroundMusicBtn" destination="HNg-lW-a2f" id="mxD-Q8-lje"/>
+                        <outlet property="emergentLiteracyAssessmentBtn" destination="w6p-Y7-xxl" id="cng-31-LV4"/>
+                        <outlet property="growingRandWBtn" destination="w6p-Y7-xxl" id="s7H-vO-jv8"/>
+                        <outlet property="growingReadersAndWritersBtn" destination="w6p-Y7-xxl" id="edj-O1-9DH"/>
                         <outlet property="narratorSoundBtn" destination="ACk-vK-vJD" id="HNe-fb-vOw"/>
                     </connections>
                 </viewController>
@@ -141,6 +152,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="page-1_background" translatesAutoresizingMaskIntoConstraints="NO" id="Q70-bf-yNz">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJj-Q9-uMD">
+                                <rect key="frame" x="924" y="663" width="80" height="85"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nav-button_right"/>
+                                <connections>
+                                    <action selector="goToNextPage:" destination="GID-jJ-xyS" eventType="touchUpInside" id="lLG-yM-Wf7"/>
+                                    <segue destination="6XD-QL-iuk" kind="show" id="S6U-Y8-uxn"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plx-QT-oWc">
                                 <rect key="frame" x="355" y="688" width="119" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -149,27 +173,12 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="exitSegue" id="gLZ-9S-FPi"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cnw-xp-dDj">
-                                <rect key="frame" x="168" y="127" width="598" height="175"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dko-JO-zpE">
                                 <rect key="frame" x="484" y="685" width="56" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <state key="normal" backgroundImage="sound-button_on"/>
                                 <connections>
                                     <action selector="changeMusicSetting:" destination="GID-jJ-xyS" eventType="touchUpInside" id="eif-XY-1h8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rk8-L2-rR4">
-                                <rect key="frame" x="915" y="663" width="89" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_right.png"/>
-                                <connections>
-                                    <segue destination="6XD-QL-iuk" kind="show" id="XgD-3W-d0g"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0D-Zx-2dy">
@@ -180,12 +189,62 @@
                                     <action selector="changeNarrationSetting:" destination="GID-jJ-xyS" eventType="touchUpInside" id="w1R-av-ISk"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="tWq-nG-exn">
+                                <rect key="frame" x="31" y="263" width="74" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="jW6-w2-6jJ">
+                                <rect key="frame" x="102" y="92" width="77" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqw-NS-OGM">
+                                <rect key="frame" x="462" y="252" width="70" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bone0" translatesAutoresizingMaskIntoConstraints="NO" id="gMQ-sd-dRK">
+                                <rect key="frame" x="594" y="454" width="133" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="QxX-dP-Vam">
+                                <rect key="frame" x="208" y="307" width="77" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tball0" translatesAutoresizingMaskIntoConstraints="NO" id="Qp0-ae-oqH">
+                                <rect key="frame" x="413" y="445" width="88" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVF-SG-bGq">
+                                <rect key="frame" x="441" y="252" width="12" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dogs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b7x-od-CWE">
+                                <rect key="frame" x="543" y="252" width="94" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0Ty-R5-RzT"/>
                     </view>
                     <connections>
+                        <outlet property="Dogs" destination="b7x-od-CWE" id="mxw-hW-DDQ"/>
+                        <outlet property="I" destination="jVF-SG-bGq" id="1bt-aH-Qls"/>
+                        <outlet property="Like" destination="sqw-NS-OGM" id="yjz-rj-pbc"/>
+                        <outlet property="apple" destination="QxX-dP-Vam" id="3d2-bE-kAn"/>
+                        <outlet property="apple2" destination="tWq-nG-exn" id="iEy-Tn-T4X"/>
+                        <outlet property="apple3" destination="jW6-w2-6jJ" id="PC2-Dd-6Y3"/>
                         <outlet property="backgroundMusicBtn" destination="dko-JO-zpE" id="DZX-Yv-RQz"/>
+                        <outlet property="ball" destination="Qp0-ae-oqH" id="A99-kN-xI6"/>
+                        <outlet property="bone" destination="gMQ-sd-dRK" id="ppV-SI-crq"/>
                         <outlet property="narratorSoundBtn" destination="J0D-Zx-2dy" id="SEI-W9-fLA"/>
                     </connections>
                 </viewController>
@@ -201,6 +260,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="page-2_background" translatesAutoresizingMaskIntoConstraints="NO" id="wIe-Iw-6FI">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dip-2Y-BXg">
                                 <rect key="frame" x="355" y="688" width="119" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -212,7 +275,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjy-VA-esG">
                                 <rect key="frame" x="924" y="675" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <state key="normal" backgroundImage="nav-button_right"/>
                                 <connections>
                                     <segue destination="eyR-wb-XyJ" kind="show" id="pjo-Ac-lEc"/>
                                 </connections>
@@ -220,22 +283,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BG9-n9-FPa">
                                 <rect key="frame" x="20" y="663" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <state key="normal" backgroundImage="nav-button_left"/>
                                 <connections>
                                     <segue destination="GID-jJ-xyS" kind="show" id="6tO-tt-yeA"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Small Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWx-hq-syx">
-                                <rect key="frame" x="213" y="297" width="598" height="175"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRP-Wo-yYX">
                                 <rect key="frame" x="484" y="685" width="56" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <state key="normal" backgroundImage="sound-button_on"/>
                                 <connections>
                                     <action selector="changeMusicSetting:" destination="6XD-QL-iuk" eventType="touchUpInside" id="pWp-Ga-aUc"/>
                                 </connections>
@@ -248,18 +304,75 @@
                                     <action selector="changeNarrationSetting:" destination="6XD-QL-iuk" eventType="touchUpInside" id="Ex3-zB-d5f"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Flower0" translatesAutoresizingMaskIntoConstraints="NO" id="8SD-Ks-tw8">
+                                <rect key="frame" x="790" y="431" width="83" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bone0" translatesAutoresizingMaskIntoConstraints="NO" id="9gL-ME-F4o">
+                                <rect key="frame" x="312" y="299" width="257" height="290"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="g72-Br-YBx">
+                                <rect key="frame" x="282" y="20" width="77" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FlowerB0" translatesAutoresizingMaskIntoConstraints="NO" id="0mh-N4-rOm">
+                                <rect key="frame" x="663" y="235" width="57" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FlowerC0" translatesAutoresizingMaskIntoConstraints="NO" id="eFn-Ha-1M0">
+                                <rect key="frame" x="266" y="265" width="66" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0z-Mt-GSy">
+                                <rect key="frame" x="574" y="328" width="12" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pop-Jx-AZS">
+                                <rect key="frame" x="594" y="328" width="70" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dogs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snf-dc-dS1">
+                                <rect key="frame" x="779" y="328" width="94" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Small" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlE-ys-3ly">
+                                <rect key="frame" x="672" y="328" width="99" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="40"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="v1C-72-mlh"/>
                     </view>
                     <connections>
+                        <outlet property="Dogs" destination="snf-dc-dS1" id="lPf-ni-S4r"/>
+                        <outlet property="I" destination="G0z-Mt-GSy" id="oE0-5v-gB3"/>
+                        <outlet property="Like" destination="Pop-Jx-AZS" id="XkE-9i-dil"/>
+                        <outlet property="Small" destination="XlE-ys-3ly" id="bl0-po-ciZ"/>
+                        <outlet property="apple" destination="g72-Br-YBx" id="ZHT-Xd-v9d"/>
                         <outlet property="backgroundMusicBtn" destination="YRP-Wo-yYX" id="yjV-sy-hMC"/>
+                        <outlet property="bone" destination="9gL-ME-F4o" id="7Qi-ie-vLR"/>
+                        <outlet property="flower" destination="8SD-Ks-tw8" id="8cK-eM-c53"/>
+                        <outlet property="flower2" destination="eFn-Ha-1M0" id="gz8-Y8-3iu"/>
+                        <outlet property="flower3" destination="0mh-N4-rOm" id="ec3-TQ-kuT"/>
                         <outlet property="narratorSoundBtn" destination="4yY-bp-GhL" id="JcN-TV-koh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="58h-Gq-x0b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="34"/>
+            <point key="canvasLocation" x="1352.9296875" y="33.59375"/>
         </scene>
         <!--Third Page Controller-->
         <scene sceneID="5UL-Lm-XbC">
@@ -269,6 +382,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="page-3_background" translatesAutoresizingMaskIntoConstraints="NO" id="WX6-cR-YGk">
+                                <rect key="frame" x="0.0" y="-1" width="1024" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BushB0" translatesAutoresizingMaskIntoConstraints="NO" id="VLf-hI-vKQ">
+                                <rect key="frame" x="206" y="278" width="370" height="215"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Tball0" translatesAutoresizingMaskIntoConstraints="NO" id="aFs-Sr-0ks">
+                                <rect key="frame" x="620" y="556" width="88" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FlowerC0" translatesAutoresizingMaskIntoConstraints="NO" id="bLi-ZS-fb8">
+                                <rect key="frame" x="716" y="537" width="103" height="110"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FlowerB0" translatesAutoresizingMaskIntoConstraints="NO" id="kwJ-uf-uRg">
+                                <rect key="frame" x="853" y="326" width="70" height="71"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bush0" translatesAutoresizingMaskIntoConstraints="NO" id="Rdh-ob-pkD">
+                                <rect key="frame" x="641" y="302" width="363" height="164"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7C-cL-Ehi">
                                 <rect key="frame" x="355" y="688" width="119" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -288,22 +425,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfA-jo-P81">
                                 <rect key="frame" x="20" y="663" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <state key="normal" backgroundImage="nav-button_left"/>
                                 <connections>
                                     <segue destination="6XD-QL-iuk" kind="show" id="UdM-21-fhO"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Big Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeM-9g-TKq">
-                                <rect key="frame" x="213" y="297" width="598" height="175"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFl-A6-zSD">
                                 <rect key="frame" x="484" y="686" width="56" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <state key="normal" backgroundImage="sound-button_on"/>
                                 <connections>
                                     <action selector="changeMusicSetting:" destination="eyR-wb-XyJ" eventType="touchUpInside" id="NCQ-Wp-Dp5"/>
                                 </connections>
@@ -316,18 +446,60 @@
                                     <action selector="changeNarrationSetting:" destination="eyR-wb-XyJ" eventType="touchUpInside" id="8Yq-fa-3bo"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeM-9g-TKq">
+                                <rect key="frame" x="413" y="459" width="48" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fJ-Bz-eOL">
+                                <rect key="frame" x="441" y="459" width="101" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Flower0" translatesAutoresizingMaskIntoConstraints="NO" id="YGk-pF-WfG">
+                                <rect key="frame" x="330" y="376" width="83" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Big" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aha-St-EXS">
+                                <rect key="frame" x="524" y="459" width="101" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V3u-kL-Z5O">
+                                <rect key="frame" x="620" y="459" width="102" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="0w5-tL-3CT"/>
                     </view>
                     <connections>
+                        <outlet property="Big" destination="Aha-St-EXS" id="9uO-d0-uBa"/>
+                        <outlet property="Bush2" destination="VLf-hI-vKQ" id="jLZ-xN-Px7"/>
+                        <outlet property="Dogs" destination="V3u-kL-Z5O" id="KtC-7v-XmT"/>
+                        <outlet property="I" destination="FeM-9g-TKq" id="gBu-VA-2hs"/>
+                        <outlet property="Like" destination="1fJ-Bz-eOL" id="74a-NB-Od0"/>
                         <outlet property="backgroundMusicBtn" destination="eFl-A6-zSD" id="6M5-ql-LXg"/>
+                        <outlet property="ball" destination="aFs-Sr-0ks" id="YVh-dU-gpR"/>
+                        <outlet property="bush" destination="Rdh-ob-pkD" id="wdb-Ul-8E6"/>
+                        <outlet property="flower" destination="YGk-pF-WfG" id="wZn-xb-do4"/>
+                        <outlet property="flower2" destination="kwJ-uf-uRg" id="La1-pb-lly"/>
+                        <outlet property="flower3" destination="bLi-ZS-fb8" id="TNo-dQ-7Sh"/>
                         <outlet property="narratorSoundBtn" destination="pl1-nq-7HL" id="pvS-eu-uh5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EuT-x3-ezV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004" y="34"/>
+            <point key="canvasLocation" x="2003.9062499999998" y="33.59375"/>
         </scene>
         <!--Fourth Page Controller-->
         <scene sceneID="Ttm-YV-FAd">
@@ -337,6 +509,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2li-Cy-GQZ">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUN-aP-egA">
                                 <rect key="frame" x="355" y="688" width="119" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -348,7 +525,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCf-fg-7e4">
                                 <rect key="frame" x="924" y="675" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <state key="normal" backgroundImage="nav-button_right"/>
                                 <connections>
                                     <segue destination="7xr-cp-iPn" kind="show" id="y8m-to-FNB"/>
                                 </connections>
@@ -356,22 +533,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwd-I1-BNL">
                                 <rect key="frame" x="20" y="663" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <state key="normal" backgroundImage="nav-button_left"/>
                                 <connections>
                                     <segue destination="eyR-wb-XyJ" kind="show" id="Phi-lR-JzJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Spotty Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gv3-19-fzv">
-                                <rect key="frame" x="213" y="297" width="598" height="175"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00U-Pu-dc5">
                                 <rect key="frame" x="484" y="688" width="56" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <state key="normal" backgroundImage="sound-button_on"/>
                                 <connections>
                                     <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bkh-KK-2Vh"/>
                                     <action selector="changeMusicSetting:" destination="vds-VG-1bs" eventType="touchUpInside" id="jG2-Mg-3EP"/>
@@ -385,11 +555,43 @@
                                     <action selector="changeNarrationSetting:" destination="vds-VG-1bs" eventType="touchUpInside" id="XgC-cn-yXW"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="99D-Dw-WBs">
+                                <rect key="frame" x="240" y="449" width="52" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Spotty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jve-Jo-Oa2">
+                                <rect key="frame" x="381" y="449" width="127" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eoR-qh-cvh">
+                                <rect key="frame" x="289" y="449" width="78" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7c-Ht-oVx">
+                                <rect key="frame" x="501" y="449" width="139" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NJr-t6-UIe"/>
                     </view>
                     <connections>
+                        <outlet property="Dogs" destination="a7c-Ht-oVx" id="yLJ-hj-9hL"/>
+                        <outlet property="I" destination="99D-Dw-WBs" id="UgL-ud-iYC"/>
+                        <outlet property="Like" destination="eoR-qh-cvh" id="ZXK-q9-1q9"/>
+                        <outlet property="Spotty" destination="Jve-Jo-Oa2" id="adU-jn-zx9"/>
                         <outlet property="backgroundMusicBtn" destination="00U-Pu-dc5" id="c5A-Ic-51t"/>
                         <outlet property="narratorSoundBtn" destination="3WV-iJ-0e2" id="TIB-fl-vrR"/>
                     </connections>
@@ -401,11 +603,17 @@
         <!--Fifth Page Controller-->
         <scene sceneID="UTT-MD-IvO">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GxA-HE-m5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7xr-cp-iPn" customClass="FifthPageController" customModule="I_Like_Dogs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3SC-tS-rq0">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KnO-ZO-eqY">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pk8-uH-eFK">
                                 <rect key="frame" x="355" y="688" width="119" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -417,7 +625,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="guy-ei-dfC">
                                 <rect key="frame" x="924" y="675" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <state key="normal" backgroundImage="nav-button_right"/>
                                 <connections>
                                     <segue destination="3TE-Kh-5vX" kind="show" id="Jgr-Gj-n8M"/>
                                 </connections>
@@ -425,22 +633,15 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evt-S6-OT6">
                                 <rect key="frame" x="20" y="663" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <state key="normal" backgroundImage="nav-button_left"/>
                                 <connections>
                                     <segue destination="vds-VG-1bs" kind="show" id="mV5-st-xho"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Curly-haired Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5r-JV-1iR">
-                                <rect key="frame" x="213" y="297" width="598" height="175"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mhx-cN-pFW">
                                 <rect key="frame" x="484" y="687" width="56" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <state key="normal" backgroundImage="sound-button_on"/>
                                 <connections>
                                     <action selector="changeMusicSetting:" destination="7xr-cp-iPn" eventType="touchUpInside" id="JXw-i2-ehh"/>
                                     <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UhS-nc-4IN"/>
@@ -454,18 +655,50 @@
                                     <action selector="changeNarrationSetting:" destination="7xr-cp-iPn" eventType="touchUpInside" id="9Ip-jO-NFU"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lP0-6s-94c">
+                                <rect key="frame" x="302" y="379" width="52" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Curly-haired" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDS-6i-hIM">
+                                <rect key="frame" x="437" y="379" width="240" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ozn-Rc-XpE">
+                                <rect key="frame" x="351" y="379" width="78" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N7Y-m4-9bO">
+                                <rect key="frame" x="667" y="379" width="139" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="d8z-Fp-K4A"/>
                     </view>
                     <connections>
+                        <outlet property="CurlyHaired" destination="QDS-6i-hIM" id="uVj-HF-EWf"/>
+                        <outlet property="Dogs" destination="N7Y-m4-9bO" id="K9M-SX-CRB"/>
+                        <outlet property="I" destination="lP0-6s-94c" id="F1l-oi-Di3"/>
+                        <outlet property="Like" destination="ozn-Rc-XpE" id="sjT-Yy-w3L"/>
                         <outlet property="backgroundMusicBtn" destination="Mhx-cN-pFW" id="k6U-c3-GSh"/>
                         <outlet property="narratorSoundBtn" destination="F5C-Bo-Vce" id="xhe-uh-fI9"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GxA-HE-m5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="696" y="1030"/>
+            <point key="canvasLocation" x="695.5078125" y="1029.6875"/>
         </scene>
         <!--Sixth Page Controller-->
         <scene sceneID="SGp-eh-Xgn">
@@ -475,6 +708,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0in-XV-Xf3">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ixg-vU-w3j">
                                 <rect key="frame" x="355" y="688" width="119" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -486,7 +724,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WH4-qC-pP2">
                                 <rect key="frame" x="924" y="675" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <state key="normal" backgroundImage="nav-button_right"/>
                                 <connections>
                                     <segue destination="yq8-zD-mIz" kind="show" id="roN-hs-g1M"/>
                                 </connections>
@@ -494,22 +732,43 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIl-uA-xyb">
                                 <rect key="frame" x="20" y="663" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <state key="normal" backgroundImage="nav-button_left"/>
                                 <connections>
                                     <segue destination="7xr-cp-iPn" kind="show" identifier="" id="NCX-UA-2Fq"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Happy Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6C-nm-ghe">
-                                <rect key="frame" x="213" y="297" width="598" height="175"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6C-nm-ghe">
+                                <rect key="frame" x="312" y="355" width="52" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Happy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPx-mr-9gh">
+                                <rect key="frame" x="453" y="355" width="126" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Yc-cL-KWG">
+                                <rect key="frame" x="361" y="355" width="78" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvf-yD-gB4">
+                                <rect key="frame" x="573" y="355" width="139" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0JY-YE-hAN">
                                 <rect key="frame" x="484" y="687" width="56" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <state key="normal" backgroundImage="sound-button_on"/>
                                 <connections>
                                     <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Een-ar-OBs"/>
                                     <action selector="changeMusicSetting:" destination="3TE-Kh-5vX" eventType="touchUpInside" id="ver-wZ-SSC"/>
@@ -528,13 +787,17 @@
                         <viewLayoutGuide key="safeArea" id="BVU-oj-Kdp"/>
                     </view>
                     <connections>
+                        <outlet property="Dogs" destination="dvf-yD-gB4" id="QE9-W2-Bic"/>
+                        <outlet property="Happy" destination="JPx-mr-9gh" id="NWv-zk-hI5"/>
+                        <outlet property="I" destination="k6C-nm-ghe" id="LJQ-Nf-fZb"/>
+                        <outlet property="Like" destination="7Yc-cL-KWG" id="6zh-b6-bJ7"/>
                         <outlet property="backgroundMusicBtn" destination="0JY-YE-hAN" id="PZm-FN-3MH"/>
                         <outlet property="narratorSoundBtn" destination="G0g-bA-wzf" id="JtA-h7-mYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yWO-9V-vv1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1353" y="1030"/>
+            <point key="canvasLocation" x="1352.9296875" y="1029.6875"/>
         </scene>
         <!--Eighth Page Controller-->
         <scene sceneID="JtN-cZ-WhP">
@@ -544,6 +807,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Exw-3p-ntk">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uL9-l5-xXs">
                                 <rect key="frame" x="355" y="688" width="119" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -555,22 +823,64 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMm-2h-15j">
                                 <rect key="frame" x="20" y="663" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <state key="normal" backgroundImage="nav-button_left"/>
                                 <connections>
                                     <segue destination="yq8-zD-mIz" kind="show" id="Fw1-rR-C8Y"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="But most of all ... I Like My Dog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an5-Ja-JMX">
-                                <rect key="frame" x="168" y="327" width="598" height="175"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="But" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="an5-Ja-JMX">
+                                <rect key="frame" x="197" y="469" width="84" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="My" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkQ-cL-fAp">
+                                <rect key="frame" x="669" y="469" width="84" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wck-Uh-JbB">
+                                <rect key="frame" x="586" y="469" width="84" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ol4-gE-cDo">
+                                <rect key="frame" x="525" y="469" width="84" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="All..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fk-ov-Lfn">
+                                <rect key="frame" x="453" y="469" width="84" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Of" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K82-mT-U8w">
+                                <rect key="frame" x="372" y="469" width="84" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Most" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGW-Fr-5Sv">
+                                <rect key="frame" x="282" y="469" width="98" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvU-Ke-JHI">
                                 <rect key="frame" x="484" y="685" width="56" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <state key="normal" backgroundImage="sound-button_on"/>
                                 <connections>
                                     <action selector="changeMusicSetting:" destination="I2p-jG-2dX" eventType="touchUpInside" id="0P3-26-I22"/>
                                 </connections>
@@ -583,11 +893,26 @@
                                     <action selector="changeNarrationSetting:" destination="I2p-jG-2dX" eventType="touchUpInside" id="cB2-aF-hTt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dog" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pk-xR-Cyf">
+                                <rect key="frame" x="751" y="469" width="84" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NZB-Qn-wg5"/>
                     </view>
                     <connections>
+                        <outlet property="All" destination="9fk-ov-Lfn" id="Rd1-Iq-mvC"/>
+                        <outlet property="But" destination="an5-Ja-JMX" id="e4g-UQ-afC"/>
+                        <outlet property="Dog" destination="1Pk-xR-Cyf" id="2wx-mL-6te"/>
+                        <outlet property="I" destination="Ol4-gE-cDo" id="Gh3-Hv-RDN"/>
+                        <outlet property="Like" destination="Wck-Uh-JbB" id="JGW-J0-AKX"/>
+                        <outlet property="Most" destination="dGW-Fr-5Sv" id="X50-Ne-HeF"/>
+                        <outlet property="My" destination="bkQ-cL-fAp" id="7qJ-8d-Eiw"/>
+                        <outlet property="Of" destination="K82-mT-U8w" id="aIL-s7-D7c"/>
                         <outlet property="backgroundMusicBtn" destination="TvU-Ke-JHI" id="ktr-KH-Ttm"/>
                         <outlet property="narratorSoundBtn" destination="CZk-wU-Cvo" id="Fsw-x7-f9v"/>
                     </connections>
@@ -604,6 +929,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="page-7_background" translatesAutoresizingMaskIntoConstraints="NO" id="Zlf-Ku-b6D">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bush0" translatesAutoresizingMaskIntoConstraints="NO" id="65F-Eu-cSO">
+                                <rect key="frame" x="20" y="333" width="345" height="165"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BushB0" translatesAutoresizingMaskIntoConstraints="NO" id="uh2-8A-tXp">
+                                <rect key="frame" x="-52" y="506" width="714" height="344"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y9u-ng-GmY">
                                 <rect key="frame" x="355" y="688" width="119" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -615,7 +952,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRV-Id-xfO">
                                 <rect key="frame" x="924" y="675" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_right.png"/>
+                                <state key="normal" backgroundImage="nav-button_right"/>
                                 <connections>
                                     <segue destination="I2p-jG-2dX" kind="show" id="hho-UO-BtI"/>
                                 </connections>
@@ -623,22 +960,36 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="be9-Sw-Ckr">
                                 <rect key="frame" x="20" y="663" width="80" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="nav-button_left.png"/>
+                                <state key="normal" backgroundImage="nav-button_left"/>
                                 <connections>
                                     <segue destination="3TE-Kh-5vX" kind="show" identifier="exitSegue" id="tbH-Bj-47e"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I Like Jumping Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPY-gC-iTI">
-                                <rect key="frame" x="213" y="297" width="598" height="175"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPY-gC-iTI">
+                                <rect key="frame" x="384" y="485" width="15" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Like" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aw9-8d-Vk6">
+                                <rect key="frame" x="401" y="485" width="94" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dogs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Ou-Vu-we4">
+                                <rect key="frame" x="458" y="536" width="108" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnG-tc-hXI">
                                 <rect key="frame" x="482" y="685" width="56" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="sound_button_on"/>
+                                <state key="normal" backgroundImage="sound-button_on"/>
                                 <connections>
                                     <action selector="changeMusicSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5cB-Yn-9JT"/>
                                     <action selector="changeMusicSetting:" destination="yq8-zD-mIz" eventType="touchUpInside" id="Iir-F2-SAB"/>
@@ -652,41 +1003,88 @@
                                     <action selector="changeNarrationSetting:" destination="yq8-zD-mIz" eventType="touchUpInside" id="Mse-dj-qC0"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jumping" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIc-Zg-9vC">
+                                <rect key="frame" x="491" y="485" width="182" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Flower0" translatesAutoresizingMaskIntoConstraints="NO" id="vak-iJ-ipB">
+                                <rect key="frame" x="549" y="278" width="50" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FlowerB0" translatesAutoresizingMaskIntoConstraints="NO" id="GCn-1D-lMf">
+                                <rect key="frame" x="289" y="412" width="76" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FlowerC0" translatesAutoresizingMaskIntoConstraints="NO" id="gjg-bm-nFB">
+                                <rect key="frame" x="661" y="552" width="99" height="96"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bush0" translatesAutoresizingMaskIntoConstraints="NO" id="t4T-1t-qaC">
+                                <rect key="frame" x="324" y="309" width="231" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3K3-bJ-Zp2"/>
                     </view>
                     <connections>
+                        <outlet property="Dogs" destination="0Ou-Vu-we4" id="1Bg-49-OG2"/>
+                        <outlet property="I" destination="CPY-gC-iTI" id="bIb-fz-VTA"/>
+                        <outlet property="Jumping" destination="PIc-Zg-9vC" id="zgo-TO-2n9"/>
+                        <outlet property="Like" destination="aw9-8d-Vk6" id="M1D-Qk-Y7N"/>
                         <outlet property="backgroundMusicBtn" destination="TnG-tc-hXI" id="sd5-Er-FbC"/>
+                        <outlet property="bush" destination="uh2-8A-tXp" id="lBI-E0-po3"/>
+                        <outlet property="bush2" destination="65F-Eu-cSO" id="psR-vp-OhA"/>
+                        <outlet property="bush3" destination="t4T-1t-qaC" id="XfG-ST-tqB"/>
+                        <outlet property="flower" destination="gjg-bm-nFB" id="tnS-L7-8Ea"/>
+                        <outlet property="flower2" destination="GCn-1D-lMf" id="rar-5U-lvO"/>
+                        <outlet property="flower3" destination="vak-iJ-ipB" id="GuO-Ij-YvA"/>
                         <outlet property="narratorSoundBtn" destination="Yk0-AQ-7XH" id="QWc-G8-Jed"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9o-Oe-xaz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2004" y="1030"/>
+            <point key="canvasLocation" x="2003.9062499999998" y="1029.6875"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Bone0" width="500" height="500"/>
+        <image name="BushB0" width="1000" height="500"/>
+        <image name="Flower0" width="500" height="500"/>
+        <image name="FlowerB0" width="500" height="500"/>
+        <image name="FlowerC0" width="500" height="500"/>
+        <image name="Tball0" width="500" height="750"/>
         <image name="about_button" width="96" height="31"/>
-        <image name="background_low-res" width="353" height="266"/>
+        <image name="apple" width="500" height="500"/>
+        <image name="bush0" width="1000" height="500"/>
         <image name="download_ELA_button" width="221" height="31"/>
         <image name="exit-button" width="62" height="31"/>
+        <image name="main-menu-background" width="2825" height="2133"/>
         <image name="narrator-sound-button_on" width="28" height="31"/>
-        <image name="nav-button_left.png" width="89" height="79"/>
+        <image name="nav-button_left" width="89" height="79"/>
+        <image name="nav-button_right" width="89" height="79"/>
         <image name="nav-button_right.png" width="89" height="79"/>
+        <image name="page-1_background" width="2825" height="2133"/>
+        <image name="page-2_background" width="2825" height="2134"/>
+        <image name="page-3_background" width="2825" height="2134"/>
+        <image name="page-7_background" width="5650" height="4267"/>
         <image name="read-button" width="163" height="40"/>
         <image name="read-myself-button" width="163" height="40"/>
         <image name="readers-and-writers-button" width="135" height="31"/>
+        <image name="sound-button_on" width="56" height="63"/>
         <image name="sound_button_on" width="56" height="63"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fw1-rR-C8Y"/>
         <segue reference="tbH-Bj-47e"/>
         <segue reference="y8m-to-FNB"/>
-        <segue reference="gVU-hT-fM4"/>
+        <segue reference="mV5-st-xho"/>
         <segue reference="Phi-lR-JzJ"/>
         <segue reference="UdM-21-fhO"/>
-        <segue reference="6tO-tt-yeA"/>
-        <segue reference="VQE-ec-Ivj"/>
+        <segue reference="5iA-5y-9jx"/>
+        <segue reference="bn5-IU-2ng"/>
     </inferredMetricsTieBreakers>
 </document>
