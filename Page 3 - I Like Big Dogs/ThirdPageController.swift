@@ -14,13 +14,13 @@ class ThirdPageController: StorybookController{
     @IBOutlet weak var flower: UIImageView!
     @IBOutlet weak var flower2: UIImageView!
     @IBOutlet weak var flower3: UIImageView!
+    @IBOutlet weak var ball: UIImageView!
     @IBOutlet weak var bush: UIImageView!
     @IBOutlet weak var bush2: UIImageView!
-    @IBOutlet weak var ball: UIImageView!
     
     private var flowerAnimation: [UIImage]!
-    private var flower2Animation: [UIImage]!
-    private var flower3Animation: [UIImage]!
+    private var flowerAnimation2: [UIImage]!
+    private var flowerAnimation3: [UIImage]!
     private var bushAnimation: [UIImage]!
     private var bush2Animation: [UIImage]!
     private var ballAnimation: [UIImage]!
@@ -67,14 +67,30 @@ class ThirdPageController: StorybookController{
         ball.addGestureRecognizer(self.setupAnimationTapRecognition())
         ball.isUserInteractionEnabled = true;
         
+        I.addGestureRecognizer(setupAnimationTapRecognition())
+        I.isUserInteractionEnabled = true
+        
+        Like.addGestureRecognizer(setupAnimationTapRecognition())
+        Like.isUserInteractionEnabled = true
+        
+        Big.addGestureRecognizer(setupAnimationTapRecognition())
+        Big.isUserInteractionEnabled = true
+        
+        Dogs.addGestureRecognizer(setupAnimationTapRecognition())
+        Dogs.isUserInteractionEnabled = true
+        
         // tags are used to identify which object was touched in the screen
         
-        flower.tag = 1
-        flower2.tag = 2
-        flower3.tag = 3
-        bush2.tag = 4
-        bush.tag = 5
-        ball.tag = 6
+        I.tag = 1
+        Like.tag = 2
+        Big.tag = 3
+        Dogs.tag = 4
+        flower.tag = 5
+        flower2.tag = 6
+        flower3.tag = 7
+        ball.tag = 8
+        bush2.tag = 9
+        bush.tag = 10
         
         
         Narrator.setScriptAudio(pageNumber: storybookPageNumber)
@@ -82,26 +98,32 @@ class ThirdPageController: StorybookController{
         flowerAnimation = super.retrieveAnimationImages(name: "Flower", numOfImages: 29);
         
         // numOfImages shown in the "bone animation" folder of "Assets.xcassets"
-        flower2Animation = super.retrieveAnimationImages(name: "FlowerB", numOfImages: 29);
+        flowerAnimation2 = super.retrieveAnimationImages(name: "FlowerB", numOfImages: 29);
         
-        flower3Animation = super.retrieveAnimationImages(name: "FlowerC", numOfImages: 29);
+        flowerAnimation3 = super.retrieveAnimationImages(name: "FlowerC", numOfImages: 29);
         
         // numOfImages shown in the "ball animation" folder of "Assets.xcassets"
-        ballAnimation = super.retrieveAnimationImages(name: "Tball", numOfImages: 29);
+        ballAnimation = super.retrieveAnimationImages(name: "Ball", numOfImages: 29);
         
         // numOfImages shown in the "bone animation" folder of "Assets.xcassets"
         bushAnimation = super.retrieveAnimationImages(name: "bush", numOfImages: 24);
         
         bush2Animation = super.retrieveAnimationImages(name: "BushB", numOfImages: 24);
 
-        
+        initialiseAnimation(sceneImage: flower, animation: flowerAnimation)
+        initialiseAnimation(sceneImage: flower2, animation: flowerAnimation2)
+        initialiseAnimation(sceneImage: flower3, animation: flowerAnimation3)
+        initialiseAnimation(sceneImage: ball, animation: ballAnimation)
+        initialiseAnimation(sceneImage: bush, animation: bushAnimation)
+        initialiseAnimation(sceneImage: bush2, animation: bush2Animation)
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         UIView.setAnimationsEnabled(true)
-        Narrator.setScriptWords(pageNumber: 3)
+        Narrator.setScriptWords(pageNumber: storybookPageNumber)
+        Narrator.setScriptAudio(pageNumber: storybookPageNumber)
         Narrator.getScriptAudio()
         readScript()
     }
@@ -148,35 +170,45 @@ class ThirdPageController: StorybookController{
     }
     
     override func playAnimation(_ sender: UITapGestureRecognizer) {
+        let wordTimes = Narrator.getWordTiming(pageNumber: storybookPageNumber)
         
-        if(sender.view!.tag == 1) {
-            initialiseAnimation(sceneImage: flower, animation: flowerAnimation)
+        switch sender.view!.tag {
+        case 1:
+            highlightWord(text: pageText[0], word: Narrator.getScriptWord(atIndex: 0), duration: wordTimes[0], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 0))
+            break
+        case 2:
+            highlightWord(text: pageText[1], word: Narrator.getScriptWord(atIndex: 1), duration: wordTimes[1], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 1))
+            break
+        case 3:
+            highlightWord(text: pageText[2], word: Narrator.getScriptWord(atIndex: 2), duration: wordTimes[2], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 2))
+            break
+        case 4:
+            highlightWord(text: pageText[3], word: Narrator.getScriptWord(atIndex: 3), duration: wordTimes[3], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 3))
+            break
+        case 5:
+            flower.startAnimating()
+            break
+        case 6:
+            flower2.startAnimating()
+            break
+        case 7:
+            flower3.startAnimating()
+            break
+        case 8:
+            ball.startAnimating()
+            break
+        case 9:
+            bush2.startAnimating()
+            break
+        case 10:
+            bush.startAnimating()
+            break
+        default:
+            return
         }
-        else
-        if(sender.view!.tag == 2) {
-            initialiseAnimation(sceneImage: flower2, animation: flower2Animation)
-            
-        }
-        else
-        if(sender.view!.tag == 3) {
-            initialiseAnimation(sceneImage: flower3, animation: flower3Animation)
-            
-        }
-        else
-        if(sender.view!.tag == 4) {
-            initialiseAnimation(sceneImage: bush2, animation: bush2Animation)
-            
-        }
-        else
-        if(sender.view!.tag == 5) {
-            initialiseAnimation(sceneImage: bush, animation: bushAnimation)
-                            
-        }
-        else
-        if(sender.view!.tag == 6) {
-            initialiseAnimation(sceneImage: ball, animation: ballAnimation)
-                
-        }
-        
     }
 }

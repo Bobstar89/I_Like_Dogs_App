@@ -14,8 +14,6 @@ class MainViewController: StorybookController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-        super.updateMusicBtnImage();
-        super.updateNarrationBtnImage();
         
         if(MusicPlayer.isSetup == false) {
             
@@ -23,10 +21,25 @@ class MainViewController: StorybookController {
                 MusicPlayer.setup();
         }
         
+        super.updateMusicBtnImage();
+        super.updateNarrationBtnImage();
+        
         growingReadersAndWritersBtn.tag = 1;
         emergentLiteracyAssessmentBtn.tag = 2;
     }
         
+    @IBAction func readStory(_ sender: Any) {
+        if(MusicPlayer.getNarrationState() == false) {
+            MusicPlayer.toggleNarration()
+        }
+    }
+    
+    @IBAction func viewStory(_ sender: Any) {
+        if(MusicPlayer.getNarrationState() == true) {
+            MusicPlayer.toggleNarration()
+            
+        }
+    }
     @IBAction func linkToExternalResource(_ sender: UIButton) {
         var resourceURL: URL!
         

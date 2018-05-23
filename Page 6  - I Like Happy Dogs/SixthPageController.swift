@@ -31,12 +31,30 @@ class SixthPageController: StorybookController {
         pageText.append(Like);
         pageText.append(Happy);
         pageText.append(Dogs);
+        
+        I.addGestureRecognizer(setupAnimationTapRecognition())
+        I.isUserInteractionEnabled = true
+        
+        Like.addGestureRecognizer(setupAnimationTapRecognition())
+        Like.isUserInteractionEnabled = true
+        
+        Happy.addGestureRecognizer(setupAnimationTapRecognition())
+        Happy.isUserInteractionEnabled = true
+        
+        Dogs.addGestureRecognizer(setupAnimationTapRecognition())
+        Dogs.isUserInteractionEnabled = true
+        
+        I.tag = 1
+        Like.tag = 2
+        Happy.tag = 3
+        Dogs.tag = 4
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         UIView.setAnimationsEnabled(true)
         Narrator.setScriptWords(pageNumber: storybookPageNumber)
+        Narrator.setScriptAudio(pageNumber: storybookPageNumber)
         Narrator.getScriptAudio()
         readScript()
     }
@@ -68,4 +86,30 @@ class SixthPageController: StorybookController {
         text.layer.addSublayer(redHighlight)
         redHighlight.add(animation, forKey: "foregroundColor")
     }
+    
+    override func playAnimation(_ sender: UITapGestureRecognizer) {
+        let wordTimes = Narrator.getWordTiming(pageNumber: storybookPageNumber)
+        
+        switch sender.view!.tag {
+        case 1:
+            highlightWord(text: pageText[0], word: Narrator.getScriptWord(atIndex: 0), duration: wordTimes[0], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 0))
+            break
+        case 2:
+            highlightWord(text: pageText[1], word: Narrator.getScriptWord(atIndex: 1), duration: wordTimes[1], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 1))
+            break
+        case 3:
+            highlightWord(text: pageText[2], word: Narrator.getScriptWord(atIndex: 2), duration: wordTimes[2], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 2))
+            break
+        case 4:
+            highlightWord(text: pageText[3], word: Narrator.getScriptWord(atIndex: 3), duration: wordTimes[3], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 3))
+            break
+        default:
+            return
+        }
+    }
+
 }

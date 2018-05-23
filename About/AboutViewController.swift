@@ -10,6 +10,7 @@ import UIKit
 
 class AboutViewController: StorybookController {
     override func viewDidLoad() {
+        let storybookPageNumber = 0
         super.updateMusicBtnImage();
         super.updateNarrationBtnImage();
     }

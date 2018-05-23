@@ -33,28 +33,28 @@ class Narrator: NSObject {
     static func setScriptWords(pageNumber: Int){
         switch pageNumber {
         case 1 :
-            scriptWords = ["I", "Like", "Dogs"];
+            scriptWords = ["I", "Like", "Dogs."];
             break;
         case 2 :
-            scriptWords = ["I", "Like", "Small", "Dogs"];
+            scriptWords = ["I", "Like", "Small", "Dogs."];
             break;
         case 3 :
-            scriptWords = ["I", "Like", "Big", "Dogs"];
+            scriptWords = ["I", "Like", "Big", "Dogs."];
             break;
         case 4 :
-            scriptWords = ["I", "Like", "Spotty", "Dogs"];
+            scriptWords = ["I", "Like", "Spotty", "Dogs."];
             break;
         case 5 :
-            scriptWords = ["I", "Like", "Curly-haired", "Dogs"];
+            scriptWords = ["I", "Like", "Curly-haired", "Dogs."];
             break;
         case 6 :
-            scriptWords = ["I", "Like", "Happy", "Dogs"];
+            scriptWords = ["I", "Like", "Happy", "Dogs."];
             break;
         case 7 :
-            scriptWords = ["I", "Like", "Jumping", "Dogs"];
+            scriptWords = ["I", "Like", "Jumping", "Dogs."];
             break;
         case 8 :
-            scriptWords = ["But", "Most", "Of", "All...", "I", "Like", "My", "Dog"];
+            scriptWords = ["But", "Most", "Of", "All...", "I", "Like", "My", "Dog."];
             break;
         default:
             scriptWords = ["I would like a type of dog to like"]
@@ -159,6 +159,10 @@ class Narrator: NSObject {
     
     static func getScriptAudio() {
         fullScriptAudio.play()
+    }
+    
+    static func readWord(word: String) {
+        segmentedScript[word]!.play()
     }
     
     

@@ -26,6 +26,7 @@ class FirstPageController: StorybookController {
     var ballAnimation = [UIImage]();
     var appleAnimation = [UIImage]();
     var boneAnimation = [UIImage]();
+    var millAnimation = [UIImage]();
     
     @IBOutlet weak var I: UILabel!
     @IBOutlet weak var Like: UILabel!
@@ -39,7 +40,9 @@ class FirstPageController: StorybookController {
     @IBOutlet weak var apple3: UIImageView!
     @IBOutlet weak var ball: UIImageView!
     @IBOutlet weak var bone: UIImageView!
-   
+    @IBOutlet weak var mill: UIImageView!
+    @IBOutlet weak var dog: UIImageView!
+    
     /*  Name: narratorTracks
  
         Description: Store the narration words to be sounded by the Music Player
@@ -58,10 +61,6 @@ class FirstPageController: StorybookController {
     */
    
     override func viewDidLoad() {
-        // Display narration and music button with appropriate graphics
-        // to suit associated "MusicPlayer" states "isNarrationOn" and "isMusicOn"
-            super.updateMusicBtnImage();
-            super.updateNarrationBtnImage();
         
             I.text = ""
             Like.text = ""
@@ -69,8 +68,6 @@ class FirstPageController: StorybookController {
             pageText.append(I)
             pageText.append(Like);
             pageText.append(Dogs);
-        
-            Narrator.setScriptAudio(pageNumber: storybookPageNumber)
         
         // Add user touch functionality for: apples, tennis ball and dog bone
             apple.addGestureRecognizer(self.setupAnimationTapRecognition())
@@ -88,21 +85,56 @@ class FirstPageController: StorybookController {
             ball.addGestureRecognizer(self.setupAnimationTapRecognition())
             ball.isUserInteractionEnabled = true;
         
+            mill.addGestureRecognizer(self.setupAnimationTapRecognition())
+            mill.isUserInteractionEnabled = true;
+        
+        dog.addGestureRecognizer(self.setupAnimationTapRecognition())
+        dog.isUserInteractionEnabled = true;
+        
+
+        I.addGestureRecognizer(setupAnimationTapRecognition())
+        I.isUserInteractionEnabled = true
+        
+        Like.addGestureRecognizer(setupAnimationTapRecognition())
+        Like.isUserInteractionEnabled = true
+        
+        Dogs.addGestureRecognizer(setupAnimationTapRecognition())
+        Dogs.isUserInteractionEnabled = true
+        
         // tags are used to identify which object was touched in the screen
-            apple.tag = 1
-            apple2.tag = 2
-            apple3.tag = 3
-            ball.tag = 4
-            bone.tag = 5
+            I.tag = 1
+            Like.tag = 2
+            Dogs.tag = 3
+            apple.tag = 4
+            apple2.tag = 5
+            apple3.tag = 6
+            ball.tag = 7
+            bone.tag = 8
+            mill.tag = 9
+            dog.tag = 10
         
         // numOfImages shown in the "ball animation" folder of "Assets.xcassets"
-            ballAnimation = super.retrieveAnimationImages(name: "Tball", numOfImages: 29);
+            ballAnimation = super.retrieveAnimationImages(name: "Ball", numOfImages: 29);
         
         // numOfImages shown in the "apple animation" folder of "Assets.xcassets"
-            appleAnimation = super.retrieveAnimationImages(name: "apple", numOfImages: 24);
+            appleAnimation = super.retrieveAnimationImages(name: "Apple", numOfImages: 59);
+            appleAnimation.append(appleAnimation.last!)
+
         
         // numOfImages shown in the "bone animation" folder of "Assets.xcassets"
-            boneAnimation = super.retrieveAnimationImages(name: "Bone", numOfImages: 46);
+            boneAnimation = super.retrieveAnimationImages(name: "Bone", numOfImages: 45);
+        
+            millAnimation = super.retrieveAnimationImages(name: "Mill", numOfImages: 30);
+        
+        
+        
+            initialiseAnimation(sceneImage: apple, animation: appleAnimation)
+            initialiseAnimation(sceneImage: apple2, animation: appleAnimation)
+            initialiseAnimation(sceneImage: apple3, animation: appleAnimation)
+            initialiseAnimation(sceneImage: ball, animation: ballAnimation)
+            initialiseAnimation(sceneImage: bone, animation: boneAnimation)
+            initialiseAnimation(sceneImage: mill, animation: millAnimation)
+
         
     }
     
@@ -110,7 +142,11 @@ class FirstPageController: StorybookController {
         super.viewDidAppear(animated)
         UIView.setAnimationsEnabled(true)
         Narrator.setScriptWords(pageNumber: 1)
-        Narrator.getScriptAudio()
+        Narrator.setScriptAudio(pageNumber: 1)
+        
+        if (MusicPlayer.getNarrationState() == true) {
+            Narrator.getScriptAudio()
+        }
         readScript()
     }
     
@@ -159,27 +195,70 @@ class FirstPageController: StorybookController {
     */
     
     override func playAnimation(_ sender: UITapGestureRecognizer) {
+        let wordTimes = Narrator.getWordTiming(pageNumber: storybookPageNumber)
         switch sender.view!.tag {
-        case 1:
-            apple.frame = CGRect(x: 208, y: 307, width: 74, height: 1000)
-            initialiseAnimation(sceneImage: apple, animation: appleAnimation)
+            case 1:
+                highlightWord(text: pageText[0], word: Narrator.getScriptWord(atIndex: 0), duration: wordTimes[0], atTime: 0)
+                Narrator.readWord(word: Narrator.getScriptWord(atIndex: 0))
+                break
+            case 2:
+                highlightWord(text: pageText[1], word: Narrator.getScriptWord(atIndex: 1), duration: wordTimes[1], atTime: 0)
+                Narrator.readWord(word: Narrator.getScriptWord(atIndex: 1))
+                break
+            case 3:
+                highlightWord(text: pageText[2], word: Narrator.getScriptWord(atIndex: 2), duration: wordTimes[2], atTime: 0)
+                Narrator.readWord(word: Narrator.getScriptWord(atIndex: 2))
+                break
+            case 4:
+                let currentFrame = apple.frame
+                let firstImage = apple.image
+                apple.frame = CGRect(x: 208, y: 284, width: 80, height: 3200)
+                apple.startAnimating()
+
+                UIView.animate(withDuration: 0, delay: (getFramesPerSecond(numOfFrames: appleAnimation.count)), animations: {
+                    self.apple.image = firstImage
+                    self.apple.frame = currentFrame
+                })
+                break
+            case 5:
+                let currentFrame = apple2.frame
+                let firstImage = apple2.image
+                apple2.frame = CGRect(x: 31, y: 263, width: 80, height: 3200)
+                
+                apple2.startAnimating()
+                
+                UIView.animate(withDuration: 0, delay: getFramesPerSecond(numOfFrames: appleAnimation.count), animations: {
+                    self.apple2.image = firstImage
+                    self.apple2.frame = currentFrame
+                })
+                break
+            case 6:
+                let currentFrame = apple3.frame
+                let firstImage = apple3.image
+                apple3.frame = CGRect(x: 102, y: 92, width: 80, height: 3200)
+                
+                apple3.startAnimating()
+                
+                UIView.animate(withDuration: 0, delay: getFramesPerSecond(numOfFrames: appleAnimation.count - 1), animations: {
+                    self.apple3.image = firstImage
+                    self.apple3.frame = currentFrame
+                })
             break
-        case 2:
-            initialiseAnimation(sceneImage: apple2, animation: appleAnimation)
-            apple2.frame = CGRect(x: 31, y: 263, width: 74, height: 1000)
-            break
-        case 3:
-            initialiseAnimation(sceneImage: apple3, animation: appleAnimation)
-            apple3.frame = CGRect(x: 102, y: 92, width: 74, height: 1200)
-            break
-        case 4:
-            initialiseAnimation(sceneImage: ball, animation: ballAnimation)
-            break
-        case 5:
-            initialiseAnimation(sceneImage: bone, animation: boneAnimation)
-            break
-        default:
-            return
+            case 7:
+                ball.startAnimating()
+                break
+            case 8:
+                bone.startAnimating()
+                break
+            case 9:
+                mill.animationRepeatCount = 2
+                mill.startAnimating()
+                break
+            case 10:
+                MusicPlayer.playSoundEffect(audioFileName: "small-dog-bark")
+                break
+            default:
+                return
         }
 
     }

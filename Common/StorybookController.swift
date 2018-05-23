@@ -39,6 +39,14 @@ class StorybookController: UIViewController{
         Dependencies: MusicPlayer.getMusicState(), backgroundMusicBtn
     */
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+        // Display narration and music button with appropriate graphics
+        // to suit associated "MusicPlayer" states "isNarrationOn" and "isMusicOn"
+            updateMusicBtnImage();
+            updateNarrationBtnImage();
+    }
+    
 
     func updateMusicBtnImage() {
             if(MusicPlayer.getMusicState() == true) {
@@ -76,7 +84,8 @@ class StorybookController: UIViewController{
         else {
             wordHighlightProperties.string = text
         }
-        wordHighlightProperties.fontSize = 40
+        wordHighlightProperties.fontSize = 60
+        wordHighlightProperties.font = UIFont(name: "Futura", size: 60)
         wordHighlightProperties.foregroundColor = UIColor.white.cgColor
         return wordHighlightProperties
     }
@@ -88,12 +97,9 @@ class StorybookController: UIViewController{
     }
     
     func initialiseAnimation(sceneImage: UIImageView, animation: [UIImage]) {
-        sceneImage.image = animation.first
         sceneImage.animationImages = animation;
         sceneImage.animationDuration = getFramesPerSecond(numOfFrames: animation.count);
         sceneImage.animationRepeatCount = 1;
-        sceneImage.startAnimating();
-        sceneImage.image = animation.last
     }
     
     /*  Name: playAnimation()

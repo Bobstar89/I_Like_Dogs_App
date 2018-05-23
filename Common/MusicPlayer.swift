@@ -115,6 +115,9 @@ class MusicPlayer: NSObject {
         // Retrieve location of the button sound effect file and store it in "audioFileURL"
             audioFileURL = retrieveAudioFile(fileName: "hustle-on", fileType: "wav")
            stack["buttonSoundEffect"] = try! AVAudioPlayer(contentsOf: audioFileURL);
+        
+            audioFileURL = retrieveAudioFile(fileName: "small-dog-bark", fileType: "mp3")
+            stack["small-dog-bark"] = try! AVAudioPlayer(contentsOf: audioFileURL);
 
         // store the app's current audio configuration of the app for easy access
         session = AVAudioSession.sharedInstance()
@@ -130,7 +133,7 @@ class MusicPlayer: NSObject {
         
         // repeat background track indefinitely
         stack["backgroundMusic"]!.numberOfLoops = -1;
-        stack["backgroundMusic"]!.play()
+//        stack["backgroundMusic"]!.play()
         
 //        for i in 0...numOfPageNarrationTracks {
 //            loadPageTracks(pageNumber: i);
@@ -213,8 +216,8 @@ class MusicPlayer: NSObject {
     // playSoundEffect:
     //                      After receiving a audioFileName, find the file reference in the Bundle and load the audioFile into the player
     //                      If there is an error, log it to the console window
-        func playSoundEffect() {
-            
+    static func playSoundEffect(audioFileName: String) {
+            MusicPlayer.stack[audioFileName]?.play()
         }
     
     static func playButtonSoundEffect(audioFileName: String){

@@ -16,6 +16,7 @@ class SecondPageController: StorybookController{
     @IBOutlet weak var flower: UIImageView!
     @IBOutlet weak var flower2: UIImageView!
     @IBOutlet weak var flower3: UIImageView!
+    @IBOutlet weak var smallDog: UIImageView!
     
     var appleAnimation = [UIImage]();
     var boneAnimation = [UIImage]();
@@ -42,9 +43,9 @@ class SecondPageController: StorybookController{
         pageText.append(Small)
         pageText.append(Dogs)
         
-        Narrator.setScriptAudio(pageNumber: storybookPageNumber)
         apple.addGestureRecognizer(self.setupAnimationTapRecognition())
         apple.isUserInteractionEnabled = true
+        
         bone.addGestureRecognizer(self.setupAnimationTapRecognition())
         bone.isUserInteractionEnabled = true
         flower.addGestureRecognizer(self.setupAnimationTapRecognition())
@@ -58,22 +59,48 @@ class SecondPageController: StorybookController{
         bone.addGestureRecognizer(self.setupAnimationTapRecognition())
         bone.isUserInteractionEnabled = true
         
-        apple.tag = 1
-        bone.tag = 2
-        flower.tag = 3
-        flower2.tag = 4
-        flower3.tag = 5
+        smallDog.addGestureRecognizer(self.setupAnimationTapRecognition())
+        smallDog.isUserInteractionEnabled = true
+        
+        I.addGestureRecognizer(setupAnimationTapRecognition())
+        I.isUserInteractionEnabled = true
+        
+        Like.addGestureRecognizer(setupAnimationTapRecognition())
+        Like.isUserInteractionEnabled = true
+        
+        Small.addGestureRecognizer(setupAnimationTapRecognition())
+        Small.isUserInteractionEnabled = true
+        
+        Dogs.addGestureRecognizer(setupAnimationTapRecognition())
+        Dogs.isUserInteractionEnabled = true
+        
+        I.tag = 1
+        Like.tag = 2
+        Small.tag = 3
+        Dogs.tag = 4
+        apple.tag = 5
+        bone.tag = 6
+        flower.tag = 7
+        flower2.tag = 8
+        flower3.tag = 9
+        smallDog.tag = 10
         
         //numOfImages shown in the "ball animation" folder of "Assets.xcassets"
-        appleAnimation = super.retrieveAnimationImages(name: "apple", numOfImages: 24);
+        appleAnimation = super.retrieveAnimationImages(name: "Apple", numOfImages: 18);
         
         //numOfImages shown in the "apple animation" folder of "Assets.xcassets"
-        boneAnimation = super.retrieveAnimationImages(name: "Bone", numOfImages: 46);
+        boneAnimation = super.retrieveAnimationImages(name: "Bone", numOfImages: 45);
         
         //numOfImages shown in the "bone animation" folder of "Assets.xcassets"
         flowerAnimation = super.retrieveAnimationImages(name: "Flower", numOfImages: 29);
         flowerAnimation2 = super.retrieveAnimationImages(name: "FlowerC", numOfImages: 29);
         flowerAnimation3 = super.retrieveAnimationImages(name: "FlowerB", numOfImages: 29);
+        
+        initialiseAnimation(sceneImage: apple, animation: appleAnimation)
+        initialiseAnimation(sceneImage: bone, animation: boneAnimation)
+        initialiseAnimation(sceneImage: flower, animation: flowerAnimation)
+        initialiseAnimation(sceneImage: flower2, animation: flowerAnimation2)
+        initialiseAnimation(sceneImage: flower3, animation: flowerAnimation3)
         
         Narrator.setScriptAudio(pageNumber: 2);
         
@@ -83,6 +110,7 @@ class SecondPageController: StorybookController{
         super.viewDidAppear(animated)
         UIView.setAnimationsEnabled(true)
         Narrator.setScriptWords(pageNumber: storybookPageNumber)
+        Narrator.setScriptAudio(pageNumber: storybookPageNumber)
         Narrator.getScriptAudio()
         readScript()
     }
@@ -117,26 +145,46 @@ class SecondPageController: StorybookController{
     }
     
     override func playAnimation(_ sender: UITapGestureRecognizer) {
+        let wordTimes = Narrator.getWordTiming(pageNumber: storybookPageNumber)
         
-        if(sender.view!.tag == 1) {
+        switch sender.view!.tag {
+        case 1:
+            highlightWord(text: pageText[0], word: Narrator.getScriptWord(atIndex: 0), duration: wordTimes[0], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 0))
+            break
+        case 2:
+            highlightWord(text: pageText[1], word: Narrator.getScriptWord(atIndex: 1), duration: wordTimes[1], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 1))
+            break
+        case 3:
+            highlightWord(text: pageText[2], word: Narrator.getScriptWord(atIndex: 2), duration: wordTimes[2], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 2))
+            break
+        case 4:
+            highlightWord(text: pageText[3], word: Narrator.getScriptWord(atIndex: 3), duration: wordTimes[3], atTime: 0)
+            Narrator.readWord(word: Narrator.getScriptWord(atIndex: 3))
+            break
+        case 5:
             apple.frame = CGRect(x: 282, y: 20, width: 77, height: 1000)
-            initialiseAnimation(sceneImage: apple, animation: appleAnimation)
-        }
-        else
-        if(sender.view!.tag == 2) {
-            initialiseAnimation(sceneImage: bone, animation: boneAnimation)
-        }
-        else
-        if(sender.view!.tag == 3) {
-            initialiseAnimation(sceneImage: flower, animation: flowerAnimation)
-        }
-        else
-        if(sender.view!.tag == 4) {
-            initialiseAnimation(sceneImage: flower2, animation: flowerAnimation2)
-        }
-        else
-        if(sender.view!.tag == 5) {
-            initialiseAnimation(sceneImage: flower3, animation: flowerAnimation3)
+            apple.startAnimating();
+            apple.image = nil
+            break
+        case 6:
+            bone.startAnimating()
+            break
+        case 7:
+            flower.startAnimating()
+            break
+        case 8:
+            flower2.startAnimating()
+            break
+        case 9:
+            flower3.startAnimating()
+            break
+        case 10:
+            MusicPlayer.playSoundEffect(audioFileName: "small-dog-bark")
+        default:
+            return
         }
     }
 }
